@@ -1,6 +1,16 @@
 {
-  "name": "lens",
+  "name": "365-photo-project",
+  "description": "Web application for the 365 photo project: a picture a day",
   "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lakto/365"
+  },
+  "author": {
+    "name": "Lakto.design",
+    "email": "lakto@milchkannen.ch",
+    "url": "http://lakto.design"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
