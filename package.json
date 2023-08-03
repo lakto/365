@@ -5,11 +5,13 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build-prod": "rm -rf docs/ && ng build --configuration production=true --base-href / --aot --output-path docs && cp docs/index.html docs/404.html && cp src/environments/CNAME docs/",
+    "build-prod": "rm -rf docs/ && ng build --configuration=production --base-href / --aot --output-path docs && cp docs/index.html docs/404.html && cp src/environments/CNAME docs/",
     "test": "ng test",
+    "test-ci": "ng test --watch=false --browsers=ChromeHeadless",
     "lint": "eslint --color --fix -c .eslintrc.js --ext .ts ./src/app",
     "lint-ci": "eslint --color -c .eslintrc.js --ext .ts ./src/app",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy": "ng deploy --base-href=/ --cname=365.lakto.design --name=Kilchenmann --email=github@milchkannen.ch --no-silent"
   },
   "private": true,
   "dependencies": {
