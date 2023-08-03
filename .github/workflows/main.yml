@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
       - name: Build the app
-        run: npm run build
+        run: yarn build
 
   publish:
     name: Write release notes
@@ -42,7 +42,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
       - name: Build the app
-        run: npm run build
+        run: yarn build
       - if: 'github.event.release.prerelease'
         uses: lakto/gren-action@v2.0.0
         with:
