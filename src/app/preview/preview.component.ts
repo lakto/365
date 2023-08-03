@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ElementRef, Output, EventEmitter } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { DefaultImage } from '../../assets/images/default.image';
 
@@ -11,14 +11,12 @@ import { DefaultImage } from '../../assets/images/default.image';
         [class.full]="full"
         [class.zoom]="zoom" />`,
     styleUrls: ['./preview.component.scss'],
-    // host: {
-    //     '(click)': 'openImage()'
-    // }
+
 })
 export class PreviewComponent implements OnInit {
 
     @Input() day!: string | null;
-    @Input() alt!: Date;
+    @Input() alt!: string | null;
     @Input() full?: boolean;
     @Input() zoom?: boolean;
 

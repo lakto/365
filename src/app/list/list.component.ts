@@ -41,6 +41,16 @@ export class ListComponent implements OnInit {
 
         this.lastDay.emit(this.last);
 
+        // get last file to display
+        const getYear = this.last.toLocaleString('default', { year: 'numeric' });
+        const getMonth = this.last.toLocaleString('default', { month: '2-digit' });
+        const getDay = this.last.toLocaleString('default', { day: '2-digit' });
+
+        const filename = getYear + getMonth + getDay;
+        const image = environment.imagePath + filename + '.jpg';
+
+        this.open(image);
+
         this.all = this.daysBetween(this.first, this.last);
 
         this.error = (this.all < 0);

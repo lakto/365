@@ -1,12 +1,12 @@
 <!-- Viewer with selected picture incl. caption and loader; only visible on desktop an bigger tablets -->
-<div class="viewer">
+<div class="viewer" *ngIf="!loading">
   <app-picture *ngIf="file" [source]="file"></app-picture>
 </div>
 <!-- Sidenav with header, list of pictures and footer; will have width of 100% on smaller mobile devices -->
 <div class="sidenav">
   <div class="header">
     <h1><img src="assets/images/365.jpg" alt="365"></h1>
-    <p>A picture a day photo project</p>
+    <p>A picture a day | photo project</p>
   </div>
 
   <div class="content">
@@ -14,7 +14,7 @@
   </div>
 
   <div class="footer">
-    <p><a href="/">365 photo project</a> by <a href="https://lakto.design">lakto.design</a> &copy;
+    <p><a href="/">365 photo project</a> ({{appVersion}}) by <a href="https://lakto.design">lakto.design</a> &copy;
       {{lastDay | date: 'yyyy'}}
     </p>
   </div>

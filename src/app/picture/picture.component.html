@@ -1,5 +1,5 @@
-<div class="picture"
-  [ngStyle]="{'background-image': 'url(' + source + ')'}"
+<div class="image-container fade-in-out"
+  [ngStyle]="{'background-image': 'url(\'' + currentImage + '\')'}"
   [class.zoom]="zoom"
   [class.fade-out]="loading"
   [class.fade-in]="!loading">

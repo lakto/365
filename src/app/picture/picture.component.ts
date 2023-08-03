@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, OnChanges, ElementRef } from '@angular/core';
-import exifr from 'exifr';
+import { Component, ElementRef, HostListener, Input, OnChanges, OnInit, Renderer2, ViewChild } from '@angular/core';
+import ExifReader from 'exifreader';
 
 export interface Exif {
     day: Date;
@@ -20,14 +20,14 @@ export interface Picture {
     selector: 'app-picture',
     templateUrl: './picture.component.html',
     styleUrls: ['./picture.component.scss'],
-    // eslint-disable-next-line @angular-eslint/no-host-metadata-property
-    // host: {
-    //     '(click)': 'toggleZoom()'
-    // }
 })
 export class PictureComponent implements OnInit, OnChanges {
 
     @Input() source!: string;
+
+    @ViewChild('imageContainer', { static: true }) imageContainer!: ElementRef<HTMLDivElement>;
+
+    currentImage!: string;
 
     picture!: Picture;
 
@@ -35,15 +35,28 @@ export class PictureComponent implements OnInit, OnChanges {
 
     zoom = true;
 
-    constructor(private _host: ElementRef) { }
+    constructor(
+        private renderer: Renderer2,
+        private _host: ElementRef
+    ) { }
+
+    @HostListener('click', ['$event'])
+    onClick(e: Event) {
+        this.zoom = !this.zoom;
+    }
 
     ngOnInit(): void {
+        // console.log(this.imageContainer);
     }
 
     ngOnChanges(): void {
 
+        this.loading = true;
+
         setTimeout(() => {
-            this.zoom = true;
+            this.currentImage = this.source;
+            this.loading = false;
+            // this.zoom = true;
             // exifr.parse(this.source).then(meta => {
             //     const shutterSpeed: string = (meta.ExposureTime < 1 ? '1/' + Math.round(1 / meta.ExposureTime) : meta.ExposureTime.toString());
             //     const camera: string = (meta.Make && meta.Model ? meta.Make + ' ' + meta.Model : meta['271'] + ' ' + meta['272']);
@@ -62,15 +75,16 @@ export class PictureComponent implements OnInit, OnChanges {
             //         }
             //     };
 
-            // this._host.nativeElement.firstElementChild.style['background-image'] = 'url(' + this.source + ')';
             // });
-            this.loading = false;
-        }, 500);
+            // this.loading = false;
+        }, 250);
 
     }
 
-    toggleZoom() {
-        this.zoom = !this.zoom;
+    async readExifData(file: any) {
+        const tags = await ExifReader.load(file);
+
+        // console.log(tags);
     }
 
 }

@@ -1,6 +1,5 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import exifr from 'exifr';
-import { environment } from 'src/environments/environment';
+import { Component, OnInit } from '@angular/core';
+import packageInfo from '../../package.json';
 
 @Component({
     selector: 'app-root',
@@ -9,13 +8,19 @@ import { environment } from 'src/environments/environment';
 })
 export class AppComponent implements OnInit {
 
+    appVersion = `v${packageInfo.version}`;
+
     file!: string;
 
     lastDay!: Date;
 
+    loading = true;
+
     constructor() { }
 
     ngOnInit(): void {
+
+        this.loading = (this.file !== undefined);
 
     }
 }
