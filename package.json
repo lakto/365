@@ -1,7 +1,7 @@
 {
   "name": "365-photo-project",
   "description": "Web application for the 365 photo project: a picture a day",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/lakto/365"

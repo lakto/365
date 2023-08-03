@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.2](https://github.com/lakto/365/compare/v1.0.1...v1.0.2) (2023-08-03)
+
+
+### Bug Fixes
+
+* **ci/cd:** resolve deploy issue ([#45](https://github.com/lakto/365/issues/45)) ([6ea9a1a](https://github.com/lakto/365/commit/6ea9a1a7755c7f09119672ac87747c412f229447))
+
+
+### Maintenance
+
+* **deps:** bump ansi-regex from 5.0.0 to 5.0.1 ([#42](https://github.com/lakto/365/issues/42)) ([9c3879c](https://github.com/lakto/365/commit/9c3879c23f7608b9ad80b69b7a876c8ea800ab63))
+
 ## [1.0.1](https://github.com/lakto/365/compare/v1.0.0...v1.0.1) (2023-08-03)
 
 
