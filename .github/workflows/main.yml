@@ -90,7 +90,7 @@ jobs:
           node-version: ${{ env.nv }}
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --immutable && yarn postinstall
+        run: yarn install --immutable
       - name: Deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
