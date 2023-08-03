@@ -2,89 +2,89 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+    selector: 'app-list',
+    templateUrl: './list.component.html',
+    styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
 
-  error: boolean;
+    @Output() load: EventEmitter<string> = new EventEmitter();
+    @Output() lastDay: EventEmitter<Date> = new EventEmitter();
 
-  first: Date;
-  last: Date = new Date();
+    error = false;
 
-  all: number;
+    first!: Date;
+    last: Date = new Date();
 
-  list: Date[] = [];
+    all!: number;
 
-  currentIndex: number = 0;
+    list: Date[] = [];
 
-  @Output() load: EventEmitter<string> = new EventEmitter();
-  @Output() lastDay: EventEmitter<Date> = new EventEmitter();
+    currentIndex = 0;
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit(): void {
-    this.first = new Date(
-      environment.start.year,
-      environment.start.month - 1,
-      environment.start.day
-    );
+    ngOnInit(): void {
+        this.first = new Date(
+            environment.start.year,
+            environment.start.month - 1,
+            environment.start.day
+        );
 
-    if (environment.end) {
-      this.last = new Date(
-        environment.end.year,
-        environment.end.month - 1,
-        environment.end.day
-      );
+        if (environment.end) {
+            this.last = new Date(
+                environment.end.year,
+                environment.end.month - 1,
+                environment.end.day
+            );
+        }
+
+        this.lastDay.emit(this.last);
+
+        this.all = this.daysBetween(this.first, this.last);
+
+        this.error = (this.all < 0);
+        this.loadList();
+
     }
 
-    this.lastDay.emit(this.last);
+    daysBetween(first: Date, second: Date) {
 
-    this.all = this.daysBetween(this.first, this.last);
+        // copy date parts of the timestamps, discarding the time parts.
+        const one = new Date(first.getFullYear(), first.getMonth(), first.getDate());
+        const two = new Date(second.getFullYear(), second.getMonth(), second.getDate());
 
-    this.error = (this.all < 0);
-    this.loadList();
+        // do the math.
+        const millisecondsPerDay = 1000 * 60 * 60 * 24;
+        const millisBetween = two.getTime() - one.getTime();
+        const days = millisBetween / millisecondsPerDay;
 
-  }
-
-  daysBetween(first: Date, second: Date) {
-
-    // Copy date parts of the timestamps, discarding the time parts.
-    let one = new Date(first.getFullYear(), first.getMonth(), first.getDate());
-    let two = new Date(second.getFullYear(), second.getMonth(), second.getDate());
-
-    // Do the math.
-    let millisecondsPerDay = 1000 * 60 * 60 * 24;
-    let millisBetween = two.getTime() - one.getTime();
-    let days = millisBetween / millisecondsPerDay;
-
-    // Round down.
-    return Math.floor(days);
-  }
-
-
-
-  loadList() {
-    if (this.error) {
-      return;
+        // round down.
+        return Math.floor(days);
     }
-    let counter = 10;
-    let i: number = 0;
-    while (i < counter && this.currentIndex <= this.all) {
-      // add last day to days array
-      this.list[this.currentIndex] = new Date(this.last);
 
-      // set previous day as last day
-      this.last.setDate(this.last.getDate() - 1);
-      // this.lastDay = current;
-      this.currentIndex++;
-      i++;
+
+
+    loadList() {
+        if (this.error) {
+            return;
+        }
+        const counter = 10;
+        let i = 0;
+        while (i < counter && this.currentIndex <= this.all) {
+            // add last day to days array
+            this.list[this.currentIndex] = new Date(this.last);
+
+            // set previous day as last day
+            this.last.setDate(this.last.getDate() - 1);
+            // this.lastDay = current;
+            this.currentIndex++;
+            i++;
+        }
     }
-  }
 
-  open(file: string) {
-    this.load.emit(file);
-  }
+    open(file: string) {
+        this.load.emit(file);
+    }
 
 }

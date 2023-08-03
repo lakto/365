@@ -9,19 +9,19 @@ import { CaptionComponent } from './caption/caption.component';
 import { PictureComponent } from './picture/picture.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PreviewComponent,
-    ListComponent,
-    CaptionComponent,
-    PictureComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        PreviewComponent,
+        ListComponent,
+        CaptionComponent,
+        PictureComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

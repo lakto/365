@@ -2,17 +2,17 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Exif } from '../picture/picture.component';
 
 @Component({
-  selector: 'app-caption',
-  templateUrl: './caption.component.html',
-  styleUrls: ['./caption.component.scss']
+    selector: 'app-caption',
+    templateUrl: './caption.component.html',
+    styleUrls: ['./caption.component.scss']
 })
 export class CaptionComponent implements OnInit {
 
-  @Input() exif: Exif;
+    @Input() exif!: Exif;
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
 
 }
