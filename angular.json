@@ -71,6 +71,9 @@
           "configurations": {
             "production": {
               "browserTarget": "lens:build:production"
+            },
+            "dev": {
+              "browserTarget": "lens:build:dev"
             }
           }
         },

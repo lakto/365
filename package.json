@@ -1,5 +1,5 @@
 {
-  "name": "365-photo-project",
+  "name": "lens",
   "description": "Web application for the 365 photo project: a picture a day",
   "version": "1.0.2",
   "repository": {
@@ -41,7 +41,7 @@
     "zone.js": "~0.13.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^16.1.6",
+    "@angular-devkit/build-angular": "^16.1.7",
     "@angular-eslint/eslint-plugin": "^16.1.0",
     "@angular/cli": "~16.1.6",
     "@angular/compiler-cli": "^16.1.7",
@@ -49,6 +49,7 @@
     "@types/node": "^20.4.5",
     "@typescript-eslint/eslint-plugin": "^6.2.0",
     "@typescript-eslint/parser": "^6.2.0",
+    "angular-cli-ghpages": "1.0.5",
     "eslint": "^8.46.0",
     "eslint-plugin-import": "^2.28.0",
     "eslint-plugin-jsdoc": "^46.4.5",
