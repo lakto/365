@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/lakto/365/compare/v1.0.2...v1.0.3) (2023-08-04)
+
+
+### Bug Fixes
+
+* **deps:** add gh pages support ([#47](https://github.com/lakto/365/issues/47)) ([d193ce1](https://github.com/lakto/365/commit/d193ce1a971f11845210e11bd8525398abcc038a))
+
 ## [1.0.2](https://github.com/lakto/365/compare/v1.0.1...v1.0.2) (2023-08-03)
 
 
