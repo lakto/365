@@ -82,6 +82,7 @@ jobs:
     name: Publish
     needs: [
       lint,
+      unit-tests,
       build
     ]
     runs-on: ubuntu-latest
