@@ -77,29 +77,29 @@ jobs:
         with:
           token: ${{ secrets.GH_TOKEN }}
 
-  # deploy and publish; runs on release only
-  publish:
-    name: Publish
-    needs: [
-      lint,
-      unit-tests,
-      build
-    ]
-    runs-on: ubuntu-latest
-    if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags')
-    steps:
-      - name: Checkout source
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 50
-      - name: Set up Node.js ${{ env.nv }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.nv }}
-          cache: 'yarn'
-      - name: Install dependencies
-        run: yarn install --immutable
-      - name: Deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: yarn deploy
+  # # deploy and publish; runs on release only
+  # publish:
+  #   name: Publish
+  #   needs: [
+  #     lint,
+  #     unit-tests,
+  #     build
+  #   ]
+  #   runs-on: ubuntu-latest
+  #   if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags')
+  #   steps:
+  #     - name: Checkout source
+  #       uses: actions/checkout@v4
+  #       with:
+  #         fetch-depth: 50
+  #     - name: Set up Node.js ${{ env.nv }}
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version: ${{ env.nv }}
+  #         cache: 'yarn'
+  #     - name: Install dependencies
+  #       run: yarn install --immutable
+  #     - name: Deploy
+  #       env:
+  #         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+  #       run: yarn deploy
