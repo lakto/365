@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Exif } from '../picture/picture.component';
 
 @Component({
@@ -6,13 +6,8 @@ import { Exif } from '../picture/picture.component';
     templateUrl: './caption.component.html',
     styleUrls: ['./caption.component.scss']
 })
-export class CaptionComponent implements OnInit {
+export class CaptionComponent {
 
     @Input() exif!: Exif;
-
-    constructor() { }
-
-    ngOnInit(): void {
-    }
 
 }

@@ -3,8 +3,11 @@
   "include": [
     // custom include - what do you want to be tested
     "./src/**/*.ts",
-    "./testcafe-tests/*.ts",
-    "./main.js"
-    // "./src/app/**/*.somelib.js"
+    "./forge.config.js",
+    "./karma.conf.js",
+    "./main.js",
+    "./eslint.config.js",
+  ],
+  "exclude": [
   ]
 }
