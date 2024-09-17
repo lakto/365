@@ -20,7 +20,7 @@ export class PreviewComponent implements OnInit {
     @Input() full?: boolean;
     @Input() zoom?: boolean;
 
-    @Output() file: EventEmitter<string> = new EventEmitter();
+    @Output() file = new EventEmitter<string>();
 
     error = false;
 
@@ -35,12 +35,12 @@ export class PreviewComponent implements OnInit {
     }
 
     loadPreview(ev: Event) {
-
+        this._host.nativeElement.classList.add('loaded', ev);
     }
 
     errorPreview(ev: Event) {
         this.image = DefaultImage.notFound;
-        this._host.nativeElement.classList.add('error');
+        this._host.nativeElement.classList.add('error', ev);
         this.error = true;
     }
 

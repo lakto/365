@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { PictureComponent } from './picture.component';
+import { CaptionComponent } from 'src/app/caption/caption.component';
 
 describe('PictureComponent', () => {
     let component: PictureComponent;
@@ -8,7 +9,10 @@ describe('PictureComponent', () => {
 
     beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
-            declarations: [ PictureComponent ]
+            declarations: [
+                PictureComponent,
+                CaptionComponent
+            ]
         })
             .compileComponents();
     }));

@@ -18,10 +18,11 @@
     "build-prod": "rm -rf docs/ && ng build --configuration=production --base-href / --aot --output-path docs && cp docs/index.html docs/404.html && cp src/environments/CNAME docs/",
     "test": "ng test",
     "test-ci": "ng test --watch=false --browsers=ChromeHeadless",
-    "lint": "eslint --color --fix -c .eslintrc.js --ext .ts ./src/app",
-    "lint-ci": "eslint --color -c .eslintrc.js --ext .ts ./src/app",
+    "lint": "yarn eslint --color ./src/app --fix",
+    "lint-ci": "yarn eslint ./src/app/",
     "e2e": "ng e2e",
-    "deploy": "ng deploy --base-href=/ --cname=365.lakto.design --name=Kilchenmann --email=github@milchkannen.ch --no-silent"
+    "deploy": "ng deploy --base-href=/ --cname=365.lakto.design --name=Kilchenmann --email=github@milchkannen.ch --no-silent",
+    "reset-deps": "rm -rf node_modules && rm -rf .yarn/cache && rm -rf yarn.lock"
   },
   "private": true,
   "dependencies": {
@@ -37,28 +38,26 @@
     "exifr": "^4.3.5",
     "exifreader": "^4.13.0",
     "rxjs": "~7.8.1",
-    "tslib": "^2.6.1",
+    "tslib": "^2.6.3",
     "zone.js": "~0.14.10"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^18.2.4",
-    "@angular-eslint/eslint-plugin": "^16.1.0",
     "@angular/cli": "~18.2.4",
     "@angular/compiler-cli": "^18.2.4",
-    "@types/jasmine": "~3.6.0",
-    "@types/node": "^20.4.5",
-    "@typescript-eslint/eslint-plugin": "^6.2.0",
-    "@typescript-eslint/parser": "^6.2.0",
-    "angular-cli-ghpages": "1.0.5",
-    "eslint": "^8.46.0",
-    "eslint-plugin-import": "^2.28.0",
-    "eslint-plugin-jsdoc": "^46.4.5",
-    "jasmine-core": "~5.1.0",
-    "karma": "~6.4.2",
+    "@types/jasmine": "~5.1.4",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.14.2",
+    "angular-eslint": "18.3.0",
+    "eslint": "^9.9.0",
+    "jasmine-core": "~5.1.2",
+    "karma": "~6.4.3",
     "karma-chrome-launcher": "~3.2.0",
-    "karma-coverage": "~2.2.1",
+    "karma-coverage": "2.2.1",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.4.5"
-  }
+    "typescript": "5.5.4",
+    "typescript-eslint": "8.1.0"
+  },
+  "packageManager": "yarn@3.3.1"
 }

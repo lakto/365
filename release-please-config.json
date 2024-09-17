@@ -1,0 +1,20 @@
+{
+  "packages": {
+    ".": {
+      "prerelease": true,
+      "prerelease-type": "rc",
+      "release-type": "node",
+      "include-v-in-tag": true,
+      "include-component-in-tag": false,
+      "changelog-type": "default",
+      "changelog-sections": [
+        {"type": "feat", "section": "Enhancements", "hidden": false },
+        {"type": "fix", "section": "Bug Fixes", "hidden": false },
+        {"type": "chore", "section": "Maintenance", "hidden": false },
+        {"type": "refactor", "section": "Maintenance", "hidden": false },
+        {"type": "style", "section": "Maintenance", "hidden": false },
+        {"type": "docs", "section": "Documentation", "hidden": false }
+      ]
+    }
+  }
+}

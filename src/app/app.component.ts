@@ -16,8 +16,6 @@ export class AppComponent implements OnInit {
 
     loading = true;
 
-    constructor() { }
-
     ngOnInit(): void {
 
         this.loading = (this.file !== undefined);

@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, Input, OnChanges, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, Input, OnChanges, ViewChild } from '@angular/core';
 import ExifReader from 'exifreader';
 
 export interface Exif {
@@ -21,7 +21,7 @@ export interface Picture {
     templateUrl: './picture.component.html',
     styleUrls: ['./picture.component.scss'],
 })
-export class PictureComponent implements OnInit, OnChanges {
+export class PictureComponent implements OnChanges {
 
     @Input() source!: string;
 
@@ -35,18 +35,9 @@ export class PictureComponent implements OnInit, OnChanges {
 
     zoom = true;
 
-    constructor(
-        private renderer: Renderer2,
-        private _host: ElementRef
-    ) { }
-
     @HostListener('click', ['$event'])
-    onClick(e: Event) {
+    onClick() {
         this.zoom = !this.zoom;
-    }
-
-    ngOnInit(): void {
-        // console.log(this.imageContainer);
     }
 
     ngOnChanges(): void {
@@ -82,9 +73,7 @@ export class PictureComponent implements OnInit, OnChanges {
     }
 
     async readExifData(file: any) {
-        const tags = await ExifReader.load(file);
-
-        // console.log(tags);
+        await ExifReader.load(file);
     }
 
 }

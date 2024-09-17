@@ -8,8 +8,8 @@ import { environment } from 'src/environments/environment';
 })
 export class ListComponent implements OnInit {
 
-    @Output() load: EventEmitter<string> = new EventEmitter();
-    @Output() lastDay: EventEmitter<Date> = new EventEmitter();
+    @Output() loading = new EventEmitter<string>();
+    @Output() lastDay = new EventEmitter<Date>();
 
     error = false;
 
@@ -21,8 +21,6 @@ export class ListComponent implements OnInit {
     list: Date[] = [];
 
     currentIndex = 0;
-
-    constructor() { }
 
     ngOnInit(): void {
         this.first = new Date(
@@ -94,7 +92,7 @@ export class ListComponent implements OnInit {
     }
 
     open(file: string) {
-        this.load.emit(file);
+        this.loading.emit(file);
     }
 
 }
