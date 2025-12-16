@@ -1,7 +1,7 @@
 {
   "name": "lens",
   "description": "Web application for the 365 photo project: a picture a day",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "repository": {
     "type": "git",
     "url": "https://github.com/lakto/365"

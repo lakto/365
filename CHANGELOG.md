@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/lakto/365/compare/v1.0.4...v1.0.5) (2025-12-16)
+
+
+### Maintenance
+
+* **deps:** bump nanoid from 3.3.7 to 3.3.8 ([#64](https://github.com/lakto/365/issues/64)) ([8817e7e](https://github.com/lakto/365/commit/8817e7ee3b63f73e23b1f7eb81bc5845e9ebfcd8))
+
 ## [1.0.4](https://github.com/lakto/365/compare/v1.0.3...v1.0.4) (2024-09-17)
 
 
